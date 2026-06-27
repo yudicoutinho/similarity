@@ -1496,17 +1496,17 @@ td {
     }
 
     th {
-        font-size: 11px;
+        font-size: 13px;
         padding: 6px 4px;
     }
 
     td {
-        font-size: 10px;
-        padding: 6px 4px;
+        font-size: 12px;
+        padding: 5px 4px;
     }
 
     .percent {
-        font-size: 14px;
+        font-size: 11px;
     }
 
     .reasons {
@@ -1517,28 +1517,38 @@ td {
     #resultTable th:nth-child(2),
     #resultTable td:nth-child(2) {
         text-align: left;
-        min-width: 25px;
-        max-width: 25px;
+        min-width: 140px;
+        max-width: 220px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 9px;
+        font-size: 14px;
     }
 
     #resultTable th:nth-child(3),
     #resultTable td:nth-child(3) {
-        min-width: 40px;
+        min-width: 30px;
+        padding: 4px 3px;
+        font-size: 11px;
     }
 
     #resultTable th:nth-child(4),
     #resultTable td:nth-child(4) {
-        min-width: 35px;
+        min-width: 24px;
+        padding: 4px 3px;
     }
 
     #resultTable th:nth-child(5),
     #resultTable td:nth-child(5) {
-        font-size: 9px;
-        min-width: 80px;
+        font-size: 10px;
+        min-width: 60px;
+    }
+
+    .filter-toggle {
+        padding: 4px 7px;
+        font-size: 10px;
+        min-width: auto;
+        max-width: 100px;
     }
 
     .btn-home {

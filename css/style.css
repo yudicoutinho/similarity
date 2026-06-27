@@ -1489,20 +1489,22 @@ td {
 
     .tableContainer {
         margin-bottom: 8px;
+        overflow-x: auto;
     }
 
-    table {
-        min-width: 600px;
+    #screen-results #resultTable {
+        width: 100% !important;
+        min-width: 0 !important;
+        table-layout: fixed !important;
     }
 
-    th {
+    #screen-results #resultTable th,
+    #screen-results #resultTable td {
         font-size: 13px;
-        padding: 6px 4px;
-    }
-
-    td {
-        font-size: 12px;
         padding: 5px 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .percent {
@@ -1514,20 +1516,47 @@ td {
         max-width: 120px;
     }
 
-    #resultTable th:nth-child(2),
-    #resultTable td:nth-child(2) {
+    #screen-results #resultTable th:nth-child(1),
+    #screen-results #resultTable td:nth-child(1) {
+        width: 40px !important;
+        min-width: 40px !important;
+    }
+
+    #screen-results #resultTable th:nth-child(2),
+    #screen-results #resultTable td:nth-child(2) {
         text-align: left;
-        min-width: 120px;
-        max-width: 180px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 14px;
+        width: 120px !important;
+        min-width: 120px !important;
+        max-width: 140px !important;
+        font-size: 13px;
+    }
+
+    #screen-results #resultTable th:nth-child(3),
+    #screen-results #resultTable td:nth-child(3) {
+        width: 35px !important;
+        min-width: 35px !important;
+        padding: 4px 3px;
+        font-size: 11px;
+    }
+
+    #screen-results #resultTable th:nth-child(4),
+    #screen-results #resultTable td:nth-child(4) {
+        width: 45px !important;
+        min-width: 45px !important;
+        padding: 4px 3px;
+    }
+
+    #screen-results #resultTable th:nth-child(5),
+    #screen-results #resultTable td:nth-child(5) {
+        width: 70px !important;
+        min-width: 70px !important;
+        font-size: 10px;
     }
 
     #resultTable th:nth-child(3),
     #resultTable td:nth-child(3) {
-        min-width: 30px;
+        min-width: 28px;
+        width: 28px;
         padding: 4px 3px;
         font-size: 11px;
     }

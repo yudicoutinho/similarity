@@ -1077,12 +1077,13 @@ td {
 
     #screen-filters .topBar .topBar-row {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         align-items: center;
         justify-content: space-between;
         gap: 8px;
         width: 100%;
         min-width: 0;
+        overflow-x: auto;
     }
 
     #screen-filters .topBar .topBar-group {
@@ -1093,17 +1094,20 @@ td {
     }
 
     #screen-filters .topBar-left,
+    #screen-filters .topBar-center,
     #screen-filters .topBar-right {
         flex: 0 1 auto;
         min-width: 0;
-        max-width: 140px;
+    }
+
+    #screen-filters .topBar-left,
+    #screen-filters .topBar-right {
+        max-width: 120px;
     }
 
     #screen-filters .topBar-center {
-        flex: 1 1 0;
-        justify-content: center;
-        min-width: 0;
         order: 2;
+        justify-content: center;
         width: auto;
     }
 

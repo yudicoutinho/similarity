@@ -1110,11 +1110,21 @@ td {
         width: auto;
     }
 
-    #screen-filters .topBar .countdown-button,
+    #screen-filters .topBar .countdown-button {
+        min-width: 0;
+        flex-shrink: 1;
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+
     #screen-filters .topBar .btn-home {
         min-width: 0;
         flex-shrink: 1;
-        max-width: 120px;
+        max-width: 100px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+
+    <title>Similarity</title>
+
+    <meta name="description"
+          content="Encontre músicas similares por BPM, gênero, tom e ano">
+
+    <meta name="theme-color" content="#00A651">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="apple-mobile-web-app-title" content="Music Finder">
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- ===================================================== -->
+<!-- TELA 1 -->
+<!-- ===================================================== -->
+
+<section id="screen-search" class="screen active">
+
+    <header class="search-header">
+
+        <h1>🎵 Music Similar Finder</h1>
+
+        <button id="countdownToggleButton" type="button" class="countdown-button active">
+            Busca automática: ligado
+        </button>
+
+    </header>
+
+    <input
+        id="searchInput"
+        type="text"
+        placeholder="Pesquisar música, artista, gênero, BPM, tom ou ano..."
+        autocomplete="off">
+
+    <div id="searchResults" class="results">
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- TELA 2 -->
+<!-- ===================================================== -->
+
+<section id="screen-filters" class="screen">
+
+    <header class="topBar">
+
+        <div class="topBar-row">
+            <div class="topBar-group topBar-left">
+                <button id="countdownToggleButton2" type="button" class="countdown-button active">
+                    Busca automática: ligado
+                </button>
+            </div>
+
+            <div class="topBar-group topBar-center">
+                <button id="btnHome1" class="btn-home">
+                    🏠 Início
+                </button>
+            </div>
+
+            <div class="topBar-group topBar-right">
+                <div id="selectedBanner2" class="selected-banner hidden"></div>
+            </div>
+        </div>
+
+        <h2>Filtros</h2>
+
+    </header>
+
+    <p>O que você deseja que seja parecido?</p>
+
+    <div class="bpm-controls">
+
+        <h3>Ajustar BPM da pista</h3>
+
+        <div class="bpm-buttons">
+
+            <button class="bpm-btn" data-bpm="down1">
+                Esfriar a pista
+                <small>1 BPM abaixo</small>
+                <small class="bpm-range">-10 ~ -15</small>
+            </button>
+
+            <button class="bpm-btn" data-bpm="up1">
+                Aquecer a pista
+                <small>1 BPM acima</small>
+                <small class="bpm-range">+10 ~ +15</small>
+            </button>
+
+            <button class="bpm-btn" data-bpm="down2">
+                Esfriar a pista x2
+                <small>2 BPM abaixo</small>
+                <small class="bpm-range">-15 ~ -20</small>
+            </button>
+
+            <button class="bpm-btn" data-bpm="up2">
+                Aquecer a pista x2
+                <small>2 BPM acima</small>
+                <small class="bpm-range">+15 ~ +20</small>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="filters">
+        <input type="checkbox" id="filterArtist" class="sr-only">
+        <input type="checkbox" id="filterStyle" class="sr-only">
+        <input type="checkbox" id="filterBPM" class="sr-only">
+        <input type="checkbox" id="filterYear" class="sr-only">
+        <input type="checkbox" id="filterKey" class="sr-only">
+    </div>
+
+    <div id="traitFiltersPanel" class="trait-panel">
+        <div class="trait-section">
+            <h3>Gêneros da música</h3>
+            <div id="styleTraitButtons" class="trait-buttons"></div>
+        </div>
+
+        <div class="trait-section">
+            <h3>Artistas relacionados</h3>
+            <div id="artistTraitButtons" class="trait-buttons"></div>
+        </div>
+
+        <div class="trait-section">
+            <h3>Outros filtros</h3>
+            <div id="metaTraitButtons" class="trait-buttons"></div>
+        </div>
+    </div>
+
+    <button id="btnCompare">
+        Buscar músicas
+    </button>
+
+    <div id="countdown">
+        Busca automática em
+        <span id="timer">10</span>s
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- TELA 3 -->
+<!-- ===================================================== -->
+
+<section id="screen-results" class="screen">
+
+    <header class="topBar">
+
+        <div class="topBar-row">
+            <div class="topBar-group topBar-left"></div>
+
+            <div class="topBar-group topBar-center">
+                <button id="btnHome2" class="btn-home">
+                    🏠 Início
+                </button>
+            </div>
+
+            <div class="topBar-group topBar-right">
+                <div id="selectedBanner3" class="selected-banner hidden"></div>
+            </div>
+        </div>
+
+        <h2>Resultados</h2>
+
+    </header>
+
+    <div class="screen3-filters">
+
+        <span class="filter-label">Filtros rápidos:</span>
+
+        <button class="filter-toggle" data-filter="artist">Artista</button>
+        <button class="filter-toggle" data-filter="style">Gênero</button>
+        <button class="filter-toggle" data-filter="key">Tom</button>
+        <button class="filter-toggle" data-filter="bpm">BPM</button>
+        <button class="filter-toggle" data-filter="year">Ano</button>
+
+    </div>
+
+    <div id="screen3TraitButtons" class="trait-buttons screen3-traits hidden"></div>
+
+    <div class="tableContainer">
+
+        <table id="resultTable">
+
+            <thead>
+
+                <tr>
+
+                    <th class="sortable" data-sort="similarity">
+                        % <span class="sort-arrow"></span>
+                    </th>
+
+                    <th class="sortable" data-sort="title">
+                        Música <span class="sort-arrow"></span>
+                    </th>
+
+                    <th class="sortable" data-sort="bpm">
+                        BPM <span class="sort-arrow"></span>
+                    </th>
+
+                    <th class="sortable" data-sort="year">
+                        Ano <span class="sort-arrow"></span>
+                    </th>
+
+                    <th class="sortable" data-sort="style">
+                        Gênero <span class="sort-arrow"></span>
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="resultBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- JAVASCRIPT -->
+<!-- ===================================================== -->
+
+<script src="js/relativeKeys.js"></script>
+
+<script src="js/styleSimilarity.js"></script>
+
+<script src="js/csvLoader.js"></script>
+
+<script src="js/ui.js"></script>
+
+<script src="js/search.js"></script>
+
+<script src="js/similarity.js"></script>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

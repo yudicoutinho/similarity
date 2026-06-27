@@ -1,0 +1,1611 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111;
+    color: #FFF;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+
+/* ==========================================================
+   TELAS
+========================================================== */
+
+.screen {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    padding: 16px;
+    padding-top: max(16px, env(safe-area-inset-top));
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    overflow: hidden;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* ==========================================================
+   TITULOS
+========================================================== */
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 14px;
+    font-size: 24px;
+    flex: 1;
+}
+
+h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #CCC;
+}
+
+p {
+    text-align: center;
+    color: #BBB;
+    margin-bottom: 20px;
+}
+
+.hint-text {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #888;
+}
+
+.search-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.countdown-button {
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 1px solid #333;
+    background: #181818;
+    color: #DDD;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.countdown-button.active {
+    border-color: #00A651;
+    background: #0d2818;
+    color: #FFF;
+}
+
+.countdown-button:hover {
+    border-color: #00C560;
+}
+
+@media (max-width: 760px) {
+    .search-header {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .countdown-button {
+        font-size: 14px;
+        padding: 10px 12px;
+        width: auto;
+        min-width: 0;
+    }
+}
+
+.countdown-button.active {
+    border-color: #00A651;
+    background: #0d2818;
+    color: #FFF;
+}
+
+.countdown-button:hover {
+    border-color: #00C560;
+}
+
+@media (max-width: 760px) {
+    .countdown-button {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+}
+
+
+/* ==========================================================
+   BANNER MÚSICA SELECIONADA
+========================================================== */
+
+.selected-banner {
+    background: linear-gradient(135deg, #1a3a2a, #0d2818);
+    border: 2px solid #00A651;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 0 16px rgba(0, 166, 81, 0.2);
+}
+
+.selected-banner.hidden {
+    display: none;
+}
+
+#screen-results #selectedBanner3 {
+    position: static;
+    left: auto;
+    right: auto;
+    margin-bottom: 0;
+    border-radius: 6px;
+    padding: 4px 8px;
+    max-height: none;
+    min-height: auto;
+    overflow-y: visible;
+    z-index: auto;
+    font-size: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 4px;
+    border: 1px solid #00A651;
+    background: rgba(0, 166, 81, 0.1);
+    box-shadow: none;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-width: 150px;
+}
+
+#screen-results #selectedBanner3.hidden {
+    display: none;
+}
+
+#screen-results #selectedBanner3 .banner-title {
+    font-size: 9px;
+    margin-bottom: 1px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#screen-results #selectedBanner3 .banner-artist {
+    font-size: 8px;
+    margin-bottom: 0;
+    color: #00E676;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#screen-results #selectedBanner3 .banner-label {
+    display: none;
+}
+
+#screen-results #selectedBanner3 .banner-info {
+    display: none;
+}
+
+#screen-results #selectedBanner3 .banner-styles {
+    display: none;
+}
+
+#screen-filters .selected-banner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    background: rgba(0, 166, 81, 0.08);
+    border: 1px solid #00A651;
+    border-radius: 16px;
+    padding: 8px 10px;
+    margin: 0;
+}
+
+#screen-filters .banner-title {
+    font-size: 14px;
+    margin: 0;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+#screen-filters .banner-artist,
+#screen-filters .banner-info,
+#screen-filters .banner-styles,
+#screen-filters .banner-label {
+    display: none;
+}
+.banner-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #00E676;
+    margin-bottom: 4px;
+}
+
+.banner-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.banner-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    font-size: 13px;
+    color: #CCC;
+}
+
+#screen-filters {
+    overflow-y: auto;
+}
+
+.trait-panel {
+    background: #1A1A1A;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.trait-panel.hidden {
+    display: none;
+}
+
+.trait-section {
+    margin-bottom: 12px;
+}
+
+.trait-section:last-child {
+    margin-bottom: 0;
+}
+
+.trait-section h3 {
+    margin-bottom: 6px;
+    font-size: 16px;
+    color: #00E676;
+}
+
+.trait-hint {
+    font-size: 13px;
+    color: #777;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.trait-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.trait-btn {
+    margin-top: 0;
+    padding: 8px 12px;
+    font-size: 14px;
+    background: #222;
+    border: 2px solid #444;
+    border-radius: 18px;
+    min-height: 40px;
+    line-height: 1.2;
+}
+
+.trait-btn-all {
+    border-color: #00A651;
+    font-weight: 700;
+}
+
+.trait-btn:hover {
+    border-color: #00A651;
+    background: #2a2a2a;
+}
+
+.trait-btn.active {
+    background: #0d2818;
+    border-color: #00A651;
+    color: #00E676;
+    box-shadow: 0 0 10px rgba(0, 166, 81, 0.25);
+}
+
+.trait-btn-artist.active {
+    background: #1a2a3a;
+    border-color: #42A5F5;
+    color: #90CAF9;
+}
+
+.style-chip {
+    display: inline-block;
+    background: rgba(0, 166, 81, 0.2);
+    border: 1px solid rgba(0, 166, 81, 0.45);
+    color: #00E676;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    margin: 2px 4px 2px 0;
+}
+
+.banner-artist {
+    font-size: 17px;
+    color: #00C560;
+    margin-bottom: 10px;
+}
+
+.banner-styles {
+    margin-bottom: 10px;
+}
+
+.result-styles {
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.styles-cell {
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 180px;
+}
+
+.banner-info span {
+    background: rgba(0, 166, 81, 0.15);
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+
+/* ==========================================================
+   PESQUISA
+========================================================== */
+
+#searchInput {
+    width: 100%;
+    font-size: 22px;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    background: #222;
+    color: white;
+    margin-bottom: 18px;
+}
+
+#searchInput::placeholder {
+    color: #777;
+}
+
+
+/* ==========================================================
+   RESULTADOS DA PESQUISA
+========================================================== */
+
+.results {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #1A1A1A;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+.result-item {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    transition: .15s;
+}
+
+.result-item:hover {
+    background: #2B2B2B;
+}
+
+.result-item.selected {
+    background: linear-gradient(135deg, #1a3a2a, #0d2818);
+    border-left: 4px solid #00A651;
+    box-shadow: inset 0 0 30px rgba(0, 166, 81, 0.1);
+}
+
+.result-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.result-artist {
+    margin-top: 4px;
+    font-size: 15px;
+    color: #00C560;
+}
+
+.result-info {
+    margin-top: 6px;
+    color: #AAA;
+    font-size: 14px;
+}
+
+mark {
+    background: #FFD54F;
+    color: #000;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+
+/* ==========================================================
+   BPM CONTROLS
+========================================================== */
+
+.bpm-controls {
+    margin-bottom: 14px;
+}
+
+.bpm-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.bpm-btn {
+    margin-top: 0;
+    padding: 8px 6px;
+    font-size: 13px;
+    background: #222;
+    border: 2px solid #444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-height: 46px;
+    line-height: 1.1;
+}
+
+.bpm-btn small {
+    font-size: 10px;
+    color: #888;
+    font-weight: normal;
+    line-height: 1.1;
+}
+
+.bpm-btn .bpm-range {
+    font-size: 9px;
+    color: #aaa;
+    margin-top: 0;
+}
+
+.bpm-btn:hover {
+    background: #2a2a2a;
+    border-color: #00A651;
+}
+
+.bpm-btn.active {
+    background: #0d2818;
+    border-color: #00A651;
+    box-shadow: 0 0 12px rgba(0, 166, 81, 0.3);
+}
+
+.bpm-btn.active small {
+    color: #00E676;
+}
+
+
+/* ==========================================================
+   FILTROS
+========================================================== */
+
+.filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.filter-option-btn {
+    margin-top: 0;
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 14px;
+    background: #181818;
+    border: 1px solid #333;
+    color: #f5f5f5;
+    text-align: center;
+}
+
+.filter-option-btn:hover {
+    border-color: #00A651;
+    background: #222;
+}
+
+.filter-option-btn.active {
+    background: #0d2818;
+    border-color: #00A651;
+    color: #00E676;
+    box-shadow: 0 0 10px rgba(0, 166, 81, 0.2);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.filters label small {
+    font-size: 13px;
+    opacity: 0.75;
+    font-weight: normal;
+    display: block;
+    margin-left: 34px;
+    line-height: 1.2;
+}
+
+.filters input {
+    transform: scale(1.35);
+}
+
+@media (max-width: 760px) {
+    .filters {
+        grid-template-columns: 1fr;
+    }
+
+    .filters label {
+        font-size: 16px;
+        padding: 10px 12px;
+    }
+
+    .filters label small {
+        margin-left: 34px;
+        font-size: 12px;
+    }
+}
+
+
+/* ==========================================================
+   FILTROS TELA 3
+========================================================== */
+
+.screen3-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.filter-label {
+    font-size: 14px;
+    color: #888;
+    margin-right: 4px;
+}
+
+.screen3-traits {
+    margin-bottom: 14px;
+}
+
+.screen3-traits.hidden {
+    display: none;
+}
+
+.filter-toggle {
+    margin-top: 0;
+    padding: 8px 16px;
+    font-size: 14px;
+    background: #222;
+    border: 1px solid #444;
+}
+
+.filter-toggle:hover {
+    border-color: #666;
+}
+
+.filter-toggle.active {
+    background: #0d2818;
+    border-color: #00A651;
+    color: #00E676;
+}
+
+
+/* ==========================================================
+   BOTÕES
+========================================================== */
+
+button {
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #00A651;
+    color: white;
+    font-size: 19px;
+    transition: .2s;
+}
+
+button:hover {
+    background: #00C560;
+}
+
+button:active {
+    transform: scale(.98);
+}
+
+.btn-home {
+    margin-top: 0;
+    padding: 10px 18px;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+
+/* ==========================================================
+   CONTADOR
+========================================================== */
+
+#countdown {
+    margin-top: 25px;
+    text-align: center;
+    color: #AAA;
+    font-size: 18px;
+}
+
+#timer {
+    color: #00E676;
+    font-weight: bold;
+}
+
+
+/* ==========================================================
+   TELA RESULTADOS
+========================================================== */
+
+#screen-results {
+    flex-direction: column;
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+#screen-results .topBar {
+    position: sticky;
+    top: 0;
+    background: #111;
+    z-index: 100;
+    padding: 0;
+    margin: -16px -16px 0 -16px;
+    margin-left: max(-16px, calc(-1 * env(safe-area-inset-left)));
+    margin-right: max(-16px, calc(-1 * env(safe-area-inset-right)));
+    margin-top: max(-16px, calc(-1 * env(safe-area-inset-top)));
+    padding: 10px 16px;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-top: max(10px, env(safe-area-inset-top));
+    border-bottom: 1px solid #333;
+    display: grid;
+    gap: 8px;
+}
+
+#screen-results .topBar h2 {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    grid-column: 1 / -1;
+}
+
+#screen-results .topBar .topBar-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+#screen-results .topBar .topBar-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#screen-results .topBar .topBar-left {
+    justify-content: flex-start;
+}
+
+#screen-results .topBar .topBar-center {
+    justify-self: center;
+}
+
+#screen-results .topBar .topBar-right {
+    justify-content: flex-end;
+}
+
+#screen-results .hint-text {
+    display: none;
+}
+
+#screen-results .screen3-filters {
+    position: sticky;
+    top: 56px;
+    background: #111;
+    z-index: 98;
+    padding: 8px 0;
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 0;
+}
+
+#screen-results #screen3TraitButtons {
+    position: sticky;
+    top: 106px;
+    background: #111;
+    z-index: 97;
+    padding: 6px 0;
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-bottom: 1px solid #333;
+    gap: 4px;
+}
+
+#screen-results .tableContainer {
+    margin-bottom: 0;
+}
+
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.tableContainer {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    border-radius: 10px;
+    background: #1A1A1A;
+    border: 1px solid #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    background: #222;
+    z-index: 10;
+}
+
+th {
+    padding: 10px;
+    border-bottom: 2px solid #444;
+    font-size: 16px;
+}
+
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background .15s;
+}
+
+th.sortable:hover {
+    background: #2a2a2a;
+}
+
+th.sortable.sorted {
+    color: #00E676;
+}
+
+.sort-arrow {
+    font-size: 12px;
+    color: #00E676;
+}
+
+td {
+    padding: 8px 10px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.result-row {
+    cursor: pointer;
+    transition: background .15s;
+}
+
+.result-row:hover {
+    filter: brightness(1.15);
+}
+
+.reasons {
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #DDD;
+    max-width: 220px;
+}
+
+
+/* ==========================================================
+   CORES
+========================================================== */
+
+.sim-high {
+    background: #145A32;
+}
+
+.sim-medium {
+    background: #8A6D00;
+}
+
+.sim-low {
+    background: #6E2323;
+}
+
+.percent {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+/* ==========================================================
+   SCROLL
+========================================================== */
+
+.results::-webkit-scrollbar,
+.tableContainer::-webkit-scrollbar {
+    width: 8px;
+}
+
+.results::-webkit-scrollbar-track,
+.tableContainer::-webkit-scrollbar-track {
+    background: #222;
+}
+
+.results::-webkit-scrollbar-thumb,
+.tableContainer::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 20px;
+}
+
+.results::-webkit-scrollbar-thumb:hover,
+.tableContainer::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+
+/* ==========================================================
+   RESPONSIVO
+========================================================== */
+
+@media (min-width: 768px) and (max-width: 1180px) {
+    #screen-filters {
+        max-width: 920px;
+        margin: 0 auto;
+    }
+
+    .bpm-buttons {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .trait-panel {
+        padding: 12px 14px;
+    }
+
+    .trait-btn {
+        min-height: 38px;
+    }
+}
+
+@media (max-width: 430px) {
+    #screen-filters {
+        padding-top: max(10px, env(safe-area-inset-top));
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+
+    #screen-filters .selected-banner {
+        padding: 8px 10px;
+        margin-bottom: 8px;
+    }
+
+    #screen-filters .banner-title {
+        font-size: 15px;
+    }
+
+    #screen-filters .banner-artist {
+        font-size: 12px;
+    }
+
+    #screen-filters .banner-info {
+        font-size: 11px;
+        gap: 4px 6px;
+    }
+
+    .bpm-controls {
+        margin-bottom: 10px;
+    }
+
+    .bpm-buttons {
+        gap: 5px;
+    }
+
+    .bpm-btn {
+        min-height: 42px;
+        padding: 7px 5px;
+        font-size: 12px;
+    }
+
+    .bpm-btn small {
+        font-size: 9px;
+    }
+
+    .trait-panel {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .trait-section {
+        margin-bottom: 8px;
+    }
+
+    #screen-filters .topBar {
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #screen-filters .topBar h2 {
+        flex: 0 1 100%;
+        text-align: center;
+        margin: 0;
+    }
+
+    #screen-filters .topBar .countdown-button,
+    #screen-filters .topBar .btn-home {
+        width: auto;
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    #screen-filters #selectedBanner2 {
+        padding: 10px 12px;
+        margin-top: 8px;
+    }
+
+    #screen-filters .selected-banner {
+        padding: 8px 10px;
+    }
+
+    #screen-filters .banner-title {
+        font-size: 15px;
+    }
+
+    #screen-filters .banner-artist {
+        font-size: 12px;
+    }
+
+    #screen-filters .banner-info {
+        gap: 4px 6px;
+        font-size: 11px;
+    }
+
+    #screen-filters .banner-info span {
+        padding: 3px 8px;
+    }
+
+    .trait-section h3 {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    .trait-buttons {
+        gap: 5px;
+    }
+
+    .trait-btn {
+        flex: 1 1 calc(50% - 5px);
+        min-height: 34px;
+        padding: 7px 8px;
+        font-size: 12px;
+    }
+
+    #btnCompare {
+        margin-top: 10px;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    #countdown {
+        margin-top: 12px;
+        font-size: 13px;
+    }
+
+    p {
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+
+    .bpm-buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #screen-filters .topBar {
+        display: grid;
+        gap: 8px;
+    }
+
+    #screen-filters .topBar .topBar-row {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    #screen-filters .topBar .topBar-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    #screen-filters .topBar-left {
+        justify-content: flex-start;
+    }
+
+    #screen-filters .topBar-center {
+        justify-self: center;
+    }
+
+    #screen-filters .topBar-right {
+        justify-content: flex-end;
+    }
+
+    #screen-filters .topBar h2 {
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        grid-column: 1 / -1;
+    }
+
+    #screen-filters .topBar .countdown-button,
+    #screen-filters .topBar .btn-home {
+        width: auto;
+        white-space: nowrap;
+    }
+
+    #screen-filters .topBar .countdown-button {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    #screen-filters .topBar .btn-home {
+        padding: 9px 12px;
+        font-size: 15px;
+    }
+
+    #screen-filters .topBar #selectedBanner2 {
+        margin: 0;
+    }
+
+    #screen-filters .selected-banner {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #screen-filters .banner-info {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .screen {
+        padding: 12px;
+        padding-top: max(12px, env(safe-area-inset-top));
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+    }
+
+    .screen.active {
+        overflow: hidden;
+    }
+
+    .topBar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .topBar h2 {
+        flex: 1 1 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    #searchInput {
+        font-size: 18px;
+        padding: 14px;
+    }
+
+    .result-item {
+        padding: 12px;
+    }
+
+    .result-title {
+        font-size: 17px;
+    }
+
+    .result-artist {
+        font-size: 14px;
+    }
+
+    .result-info {
+        font-size: 13px;
+    }
+
+    .filters label {
+        font-size: 16px;
+        gap: 10px;
+    }
+
+    .filters input {
+        transform: scale(1.3);
+    }
+
+    .trait-panel {
+        padding: 12px;
+    }
+
+    .trait-section {
+        margin-bottom: 14px;
+    }
+
+    .trait-hint {
+        font-size: 12px;
+    }
+
+    .trait-buttons {
+        gap: 7px;
+    }
+
+    .trait-btn {
+        padding: 8px 10px;
+        font-size: 13px;
+        min-height: 38px;
+    }
+
+    .bpm-buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bpm-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .screen3-filters {
+        justify-content: center;
+    }
+
+    .filter-toggle {
+        padding: 10px 12px;
+        font-size: 13px;
+        min-width: 120px;
+    }
+
+    #btnCompare {
+        width: 100%;
+    }
+
+    .tableContainer {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 720px;
+    }
+
+    th,
+    td {
+        white-space: nowrap;
+    }
+
+    th {
+        font-size: 13px;
+        padding: 11px 7px;
+    }
+
+    td {
+        font-size: 12px;
+        padding: 9px 7px;
+    }
+
+    .banner-title {
+        font-size: 16px;
+    }
+
+    .banner-info {
+        font-size: 12px;
+        gap: 6px 10px;
+    }
+
+    .banner-info span {
+        padding: 3px 8px;
+    }
+
+    .banner-artist {
+        font-size: 15px;
+    }
+
+    .result-row td {
+        padding: 8px 6px;
+    }
+
+    .reasons {
+        font-size: 11px;
+        max-width: 140px;
+    }
+
+    th.sortable {
+        padding: 9px 6px;
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .screen {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    #searchInput {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .filters label {
+        font-size: 15px;
+    }
+
+    .filters input {
+        transform: scale(1.2);
+    }
+
+    .result-title {
+        font-size: 15px;
+    }
+
+    .result-artist {
+        font-size: 13px;
+    }
+
+    .result-info {
+        font-size: 12px;
+    }
+
+    .bpm-btn {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .filter-toggle {
+        flex: 1 1 100%;
+    }
+
+    button {
+        font-size: 17px;
+        padding: 14px;
+    }
+
+    .tableContainer {
+        margin-bottom: 10px;
+    }
+
+    table {
+        min-width: 640px;
+    }
+
+    .selected-banner {
+        padding: 10px 12px;
+    }
+
+    .trait-panel {
+        padding: 10px;
+    }
+
+    .trait-section h3 {
+        font-size: 14px;
+    }
+
+    .trait-buttons {
+        gap: 6px;
+    }
+
+    .trait-btn {
+        flex: 1 1 calc(50% - 6px);
+        justify-content: center;
+        min-height: 36px;
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .banner-title {
+        font-size: 15px;
+    }
+
+    .banner-info {
+        gap: 6px 8px;
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .screen {
+        padding: 8px;
+        padding-top: max(8px, env(safe-area-inset-top));
+        padding-bottom: max(8px, env(safe-area-inset-bottom));
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    #screen-results .topBar h2 {
+        font-size: 16px;
+    }
+
+    #searchInput {
+        font-size: 16px;
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .topBar {
+        margin-bottom: 6px;
+        gap: 6px;
+    }
+
+    .topBar h2 {
+        margin-bottom: 0;
+    }
+
+    .hint-text {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+
+    .filters label {
+        font-size: 15px;
+    }
+
+    .filters input {
+        transform: scale(1.1);
+    }
+
+    .result-title {
+        font-size: 14px;
+    }
+
+    .result-artist {
+        font-size: 12px;
+    }
+
+    .result-info {
+        font-size: 11px;
+    }
+
+    .bpm-btn {
+        font-size: 12px;
+        padding: 8px;
+        min-height: 40px;
+    }
+
+    .screen3-filters {
+        gap: 4px;
+        margin-bottom: 6px;
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+
+    .filter-label {
+        font-size: 12px;
+        margin-right: 2px;
+        flex-shrink: 0;
+    }
+
+    .filter-toggle {
+        padding: 6px 10px;
+        font-size: 11px;
+        margin-top: 0;
+        flex-shrink: 0;
+    }
+
+    .tableContainer {
+        margin-bottom: 8px;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    th {
+        font-size: 11px;
+        padding: 6px 4px;
+    }
+
+    td {
+        font-size: 10px;
+        padding: 6px 4px;
+    }
+
+    .percent {
+        font-size: 14px;
+    }
+
+    .reasons {
+        font-size: 10px;
+        max-width: 120px;
+    }
+
+    #resultTable th:nth-child(2),
+    #resultTable td:nth-child(2) {
+        text-align: left;
+        min-width: 25px;
+        max-width: 25px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 9px;
+    }
+
+    #resultTable th:nth-child(3),
+    #resultTable td:nth-child(3) {
+        min-width: 40px;
+    }
+
+    #resultTable th:nth-child(4),
+    #resultTable td:nth-child(4) {
+        min-width: 35px;
+    }
+
+    #resultTable th:nth-child(5),
+    #resultTable td:nth-child(5) {
+        font-size: 9px;
+        min-width: 80px;
+    }
+
+    .btn-home {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .selected-banner {
+        padding: 8px 10px;
+        margin-bottom: 8px;
+    }
+
+    .banner-title {
+        font-size: 13px;
+        margin-bottom: 3px;
+    }
+
+    .banner-artist {
+        font-size: 11px;
+        margin-bottom: 3px;
+    }
+
+    .banner-info {
+        gap: 4px 6px;
+        font-size: 10px;
+    }
+
+    #screen-results #selectedBanner3 {
+        font-size: 10px;
+        padding: 3px 6px;
+        max-height: auto;
+        position: static;
+        border: 1px solid #00A651;
+        max-width: 140px;
+    }
+
+    #screen-results #selectedBanner3 .banner-title {
+        font-size: 8px;
+    }
+
+    #screen-results #selectedBanner3 .banner-artist {
+        font-size: 7px;
+    }
+
+    #screen-results #selectedBanner3 .banner-info {
+        font-size: 9px;
+    }
+
+    .trait-panel {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+
+    .trait-section h3 {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .trait-buttons {
+        gap: 4px;
+    }
+
+    .trait-btn {
+        flex: 1 1 calc(50% - 4px);
+        min-height: 32px;
+        padding: 6px;
+        font-size: 11px;
+    }
+
+}

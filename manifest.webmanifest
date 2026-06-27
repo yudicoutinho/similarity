@@ -1,0 +1,32 @@
+{
+    "name": "Music Similar Finder",
+    "short_name": "Music Finder",
+    "description": "Encontre músicas similares por BPM, gênero, tom e ano",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "#111111",
+    "theme_color": "#00A651",
+    "lang": "pt-BR",
+    "icons": [
+        {
+            "src": "icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

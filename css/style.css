@@ -1093,22 +1093,31 @@ td {
         min-width: 0;
     }
 
-    #screen-filters .topBar-left,
+    #screen-filters .topBar-left {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
     #screen-filters .topBar-center,
     #screen-filters .topBar-right {
         flex: 0 1 auto;
         min-width: 0;
     }
 
-    #screen-filters .topBar-left,
-    #screen-filters .topBar-right {
-        max-width: 120px;
-    }
-
     #screen-filters .topBar-center {
         order: 2;
         justify-content: center;
         width: auto;
+    }
+
+    #screen-filters .topBar .countdown-button,
+    #screen-filters .topBar .btn-home {
+        min-width: 0;
+        flex-shrink: 1;
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     #screen-filters .topBar-left {

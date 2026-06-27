@@ -1076,16 +1076,25 @@ td {
 
     #screen-filters .topBar .topBar-row {
         display: grid;
-        grid-template-columns: 1fr auto 1fr;
+        grid-template-columns: auto 1fr auto;
         align-items: center;
+        justify-items: center;
         gap: 8px;
         width: 100%;
+        min-width: 0;
     }
 
     #screen-filters .topBar .topBar-group {
         display: flex;
         align-items: center;
         gap: 8px;
+        min-width: 0;
+    }
+
+    #screen-filters .topBar-left,
+    #screen-filters .topBar-center,
+    #screen-filters .topBar-right {
+        min-width: 0;
     }
 
     #screen-filters .topBar-left {
@@ -1125,6 +1134,19 @@ td {
 
     #screen-filters .topBar #selectedBanner2 {
         margin: 0;
+        max-width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    #screen-filters .selected-banner {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-width: 140px;
+        min-width: 0;
+        overflow: hidden;
     }
 
     #screen-filters .selected-banner {

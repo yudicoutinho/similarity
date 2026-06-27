@@ -603,7 +603,7 @@ function renderResults(results) {
 
         tbody.innerHTML = `
             <tr>
-                <td colspan="5">
+                <td colspan="6">
                     Nenhuma música encontrada com os filtros selecionados.
                 </td>
             </tr>
@@ -626,6 +626,7 @@ function renderResults(results) {
                 <strong>${song.similarity}%</strong>
             </td>
             <td>${song["Song Title"]}</td>
+            <td>${song.Key || "—"}</td>
             <td>${Math.round(song.BPM * 10) / 10}</td>
             <td>${song.Year}</td>
             <td class="styles-cell">${formatSongStyles(song)}</td>

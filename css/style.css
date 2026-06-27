@@ -1072,13 +1072,14 @@ td {
     #screen-filters .topBar {
         display: grid;
         gap: 8px;
+        overflow: hidden;
     }
 
     #screen-filters .topBar .topBar-row {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        justify-items: center;
+        justify-content: space-between;
         gap: 8px;
         width: 100%;
         min-width: 0;
@@ -1092,21 +1093,26 @@ td {
     }
 
     #screen-filters .topBar-left,
-    #screen-filters .topBar-center,
     #screen-filters .topBar-right {
+        flex: 0 1 auto;
         min-width: 0;
-    }
-
-    #screen-filters .topBar-left {
-        justify-content: flex-start;
+        max-width: 140px;
     }
 
     #screen-filters .topBar-center {
-        justify-self: center;
+        flex: 1 1 0;
+        justify-content: center;
+        min-width: 0;
+        order: 2;
+        width: auto;
+    }
+
+    #screen-filters .topBar-left {
+        order: 1;
     }
 
     #screen-filters .topBar-right {
-        justify-content: flex-end;
+        order: 3;
     }
 
     #screen-filters .topBar h2 {
@@ -1135,6 +1141,8 @@ td {
     #screen-filters .topBar #selectedBanner2 {
         margin: 0;
         max-width: 140px;
+        min-width: 0;
+        width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -1149,10 +1157,8 @@ td {
         overflow: hidden;
     }
 
-    #screen-filters .selected-banner {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+    #screen-filters .banner-title {
+        max-width: 100%;
     }
 
     #screen-filters .banner-info {

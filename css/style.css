@@ -1576,52 +1576,41 @@ td {
     #screen-results #resultTable th:nth-child(2),
     #screen-results #resultTable td:nth-child(2) {
         text-align: left;
-        width: 120px !important;
-        min-width: 120px !important;
-        max-width: 140px !important;
+        width: 100px !important;
+        min-width: 100px !important;
+        max-width: 120px !important;
         font-size: 13px;
     }
 
     #screen-results #resultTable th:nth-child(3),
     #screen-results #resultTable td:nth-child(3) {
-        width: 35px !important;
-        min-width: 35px !important;
+        width: 40px !important;
+        min-width: 40px !important;
         padding: 4px 3px;
         font-size: 11px;
     }
 
     #screen-results #resultTable th:nth-child(4),
     #screen-results #resultTable td:nth-child(4) {
-        width: 45px !important;
-        min-width: 45px !important;
-        padding: 4px 3px;
-    }
-
-    #screen-results #resultTable th:nth-child(5),
-    #screen-results #resultTable td:nth-child(5) {
-        width: 70px !important;
-        min-width: 70px !important;
-        font-size: 10px;
-    }
-
-    #resultTable th:nth-child(3),
-    #resultTable td:nth-child(3) {
-        min-width: 28px;
-        width: 28px;
+        width: 35px !important;
+        min-width: 35px !important;
         padding: 4px 3px;
         font-size: 11px;
     }
 
-    #resultTable th:nth-child(4),
-    #resultTable td:nth-child(4) {
-        min-width: 24px;
+    #screen-results #resultTable th:nth-child(5),
+    #screen-results #resultTable td:nth-child(5) {
+        width: 45px !important;
+        min-width: 45px !important;
         padding: 4px 3px;
+        font-size: 11px;
     }
 
-    #resultTable th:nth-child(5),
-    #resultTable td:nth-child(5) {
+    #screen-results #resultTable th:nth-child(6),
+    #screen-results #resultTable td:nth-child(6) {
+        width: 70px !important;
+        min-width: 70px !important;
         font-size: 10px;
-        min-width: 60px;
     }
 
     .filter-toggle {
